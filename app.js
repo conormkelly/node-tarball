@@ -6,13 +6,10 @@ const fs = require("fs");
 
 // Clean each resulant chunk of unformatted json
 module.exports.parseTarball = inputFilePath => {
-  if (!inputFilePath || typeof inputFilePath !== "string") {
-    throw new Error(`InvalidArgument: No file path supplied`);
-  }
-
-  const filename = path.basename(inputFilePath);
+  let filename;
 
   try {
+    filename = path.basename(inputFilePath);
     // Get the buffer from the file
     const buffer = fs.readFileSync(inputFilePath);
 
@@ -27,7 +24,9 @@ module.exports.parseTarball = inputFilePath => {
 };
 
 function handleError(err, filename) {
-  if (
+  if (!filename) {
+    throw new Error(`InvalidArgument: Invalid file path supplied`);
+  } else if (
     err.message.includes("Unexpected end of JSON input") ||
     err.message.includes("Unexpected token")
   ) {

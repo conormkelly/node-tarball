@@ -98,7 +98,7 @@ describe("Invalid Path supplied", () => {
     it("should throw an InvalidArgument error", () => {
       expect(
         tarball2JS.parseTarball.bind(tarball2JS, "")
-      ).to.throw("InvalidArgument: No file path supplied");
+      ).to.throw("InvalidArgument: Invalid file path supplied");
     });
   });
 
@@ -106,7 +106,7 @@ describe("Invalid Path supplied", () => {
     it("should throw an InvalidArgument error", () => {
       expect(
         tarball2JS.parseTarball.bind(tarball2JS, null)
-      ).to.throw("InvalidArgument: No file path supplied");
+      ).to.throw("InvalidArgument: Invalid file path supplied");
     });
   });
 
