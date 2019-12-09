@@ -1,18 +1,18 @@
 // Core node modules
-const { unzipSync } = require("zlib");
-const path = require("path");
-const fs = require("fs");
+const { unzipSync } = require('zlib');
+const path = require('path');
+const fs = require('fs');
 
 // Local files
-const { determineError } = require("./errorFactory");
-const { getFormattedJSON } = require("./jsonUtils");
+const { determineError } = require('./errorFactory');
+const { getFormattedJSON } = require('./jsonUtils');
 
 // Constants
 const {
   STRING_ENCODING,
   TARFILE_SEPARATOR,
   HEADER_DATA
-} = require("./constants");
+} = require('./constants');
 
 module.exports.extractJSONArray = (inputFilePath, onComplete) => {
   let filename;
