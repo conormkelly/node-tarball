@@ -4,16 +4,21 @@ const path = require('path');
 const fs = require('fs');
 
 // Local files
-const { determineError } = require('./errorFactory');
-const { getFormattedJSON } = require('./jsonUtils');
+const { determineError } = require('./lib/errorFactory');
+const { getFormattedJSON } = require('./lib/jsonUtils');
 
 // Constants
 const {
   STRING_ENCODING,
   TARFILE_SEPARATOR,
-  HEADER_DATA
-} = require('./constants');
+  HEADERS_LENGTH
+} = require('./lib/constants');
 
+/**
+ * Returns a JSON array from a tar.gz file containing one or more valid JSON files.
+ * @param {string} inputFilePath
+ * @param {(err: Error, results: any[]) => void} onComplete
+ */
 module.exports.extractJSONArray = (inputFilePath, onComplete) => {
   let filename;
 
@@ -24,7 +29,7 @@ module.exports.extractJSONArray = (inputFilePath, onComplete) => {
     const results = unzipSync(buffer)
       .toString(STRING_ENCODING)
       .split(TARFILE_SEPARATOR) // Separate into headers & files
-      .slice(HEADER_DATA) // First 2 entries are headers
+      .slice(HEADERS_LENGTH) // First 2 entries are headers
       .map(rawJsonString => getFormattedJSON(rawJsonString));
 
     onComplete(null, results);

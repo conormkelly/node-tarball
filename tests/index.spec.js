@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const tarball2JS = require('../main');
+const tarball2JS = require('../index');
 
 describe('Valid JSON Arrays', () => {
   describe('given a tarball containing 1 valid jsonArray file', () => {
