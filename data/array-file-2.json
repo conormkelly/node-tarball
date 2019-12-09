@@ -1,17 +1,17 @@
 [
-    {
-        "id": 4,
-        "name": "Charles",
-        "age": 27
-    },
-    {
-        "id": 5,
-        "name": "Linda",
-        "age": 19
-    },
-    {
-        "id": 6,
-        "name": "Lorna",
-        "age": 31
-    }
+  {
+    "id": 4,
+    "name": "Charles",
+    "age": 27
+  },
+  {
+    "id": 5,
+    "name": "Linda",
+    "age": 19
+  },
+  {
+    "id": 6,
+    "name": "Lorna",
+    "age": 31
+  }
 ]

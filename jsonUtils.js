@@ -1,6 +1,6 @@
 exports.getFormattedJSON = rawJsonString => {
-  const openingBraces = ['{', '['];
-  const closingBraces = ['}', ']'];
+  const openingBraces = ["{", "["];
+  const closingBraces = ["}", "]"];
 
   // Removes chars outside the braces
   return JSON.parse(
